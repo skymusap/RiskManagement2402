@@ -27,6 +27,11 @@ annotate service.Risks with @(
             Label : 'criticality',
             Value : criticality,
         },
+        {
+            $Type : 'UI.DataField',
+            Value : supplier_BusinessPartner,
+            Label : 'supplier_BusinessPartner',
+        },
     ]
 );
 annotate service.Risks with {
@@ -80,6 +85,10 @@ annotate service.Risks with {
                 $Type : 'Common.ValueListParameterDisplayOnly',
                 ValueListProperty : 'BusinessPartnerFullName',
             },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'BusinessPartnerIsBlocked',
+            },
         ],
     }
 };
@@ -117,6 +126,21 @@ annotate service.Risks with @(
                 Label : 'supplier_BusinessPartner',
                 Value : supplier_BusinessPartner,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : miti.ID,
+                Label : 'ID',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.BusinessPartnerFullName,
+                Label : 'BusinessPartnerFullName',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.BusinessPartnerIsBlocked,
+                Label : 'BusinessPartnerIsBlocked',
+            },
         ],
     },
     UI.Facets : [
@@ -128,3 +152,6 @@ annotate service.Risks with @(
         },
     ]
 );
+annotate service.Risks with {
+    supplier @Common.ValueListWithFixedValues : true
+};
